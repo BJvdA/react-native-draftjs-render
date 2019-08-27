@@ -6,13 +6,13 @@
 
 // @flow
 
-import React from 'react';
-import { Text } from 'react-native';
+import React from "react";
+import { Text } from "react-native";
 
-import loadAttributes from '../loadAttributes';
+import loadAttributes from "../loadAttributes";
 
-import defaultStyles from './defaultStyles';
-import type { DraftJsTextPropsType } from './types';
+import defaultStyles from "./defaultStyles";
+import type { DraftJsTextPropsType } from "./types";
 
 const DraftJsText = (props: DraftJsTextPropsType): any => {
   const { text } = props;
@@ -27,11 +27,15 @@ const DraftJsText = (props: DraftJsTextPropsType): any => {
       entityMap: props.entityMap,
       navigate: props.navigate,
       textProps: props.textProps,
-      type: props.type,
+      type: props.type
     });
 
-    const customStyle = props.customStyles ? props.customStyles[props.type] : undefined;
-    const textAlignStyle = { textAlign: props.data.textAlignment };
+    const customStyle = props.customStyles
+      ? props.customStyles[props.type]
+      : undefined;
+    const textAlignStyle = {
+      textAlign: props.data["text-align"] || props.data.textAlignment
+    };
 
     return (
       <Text
@@ -46,10 +50,10 @@ const DraftJsText = (props: DraftJsTextPropsType): any => {
 };
 
 DraftJsText.defaultProps = {
-  text: '',
+  text: "",
   data: {},
   inlineStyles: [],
-  navigate: undefined,
+  navigate: undefined
 };
 
 export default DraftJsText;
